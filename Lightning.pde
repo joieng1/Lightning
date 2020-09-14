@@ -15,7 +15,7 @@ void draw(){
 
   //lightning
    stroke(246,246,0);
-   while (endX>Double.POSITIVE_INFINITY);
+   while (endX>1920);
   {
     endX = startX + ((int) (Math.random()*20)-10);
     endY = startY + ((int) (Math.random()*70)-10);
@@ -30,8 +30,8 @@ void draw(){
    rect(Y,780,300,300);
    fill(255,255,153);
    rect(X,780,250,150);
-   X = X + 10;
-   Y = Y + 10;
+   X = X + 15;
+   Y = Y + 15;
    
   //tires
   fill(150);
@@ -58,7 +58,7 @@ void draw(){
   
   //road
   fill(133);
-  rect(0,1000,1920,500);
+  rect(0,1000,1920,600);
   
   
 }
