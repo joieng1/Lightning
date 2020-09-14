@@ -6,7 +6,7 @@ int X = 100;
 int Y = 0;
 void setup(){
   size(1920,1080);
-  background(256);
+  background(0);
   strokeWeight(10);
   frameRate(45);  
 }
