@@ -1,69 +1,71 @@
-Die bob;
- void setup()
+int startX = ((int) (Math.random()*300)+30);
+int startY = 150;
+int endX = 0;
+int endY = 150;
+int X = 100;
+ int Y = 0;
+ void setup(){
+   size(1920,1080);
+   
+   background(0);
+   strokeWeight(10);
+   frameRate(45);  
+ }
+  
+void draw(){
+  //lightning
+   stroke(246,246,0);
+   while (endX>1920);
   {
-    size(750,750);  
-    noLoop();
-  }
-  void draw()
-  {
-    //your code here
-    background(0);
+    endX = startX + ((int) (Math.random()*20)-10);
+    endY = startY + ((int) (Math.random()*70)-10);
+    line(startX,startY,endX,endY);
+    startX = endX;
+    startY = endY;
     
-    for(int x = 50; x < 500; x = x + 60){
-    bob = new Die(x,1000);
-    bob.show();
-    bob.roll();
-    }
   }
-  void mousePressed()
-  {
-      redraw();
-  }
-  class Die //models one single dice cube
-  {
-    int number,myX,myY;
-      Die(int x, int y) //constructor
-      {
-        //variable initializations here
-        myX = x;
-        myY = y;         
-      }
-      void roll()
-      {
-       number = ((int)(Math.random()*6)+1);
-      }
-      void show()
-      {
-        noStroke();
-        fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
-        rect(myX, myY, 100, 100,7);
-        if(number == 1){
-         ellipse(20,20,20,20);
-        }else if(number == 2){
-          ellipse(20,20,20,20);
-          ellipse(20,20,20,20);
-        }else if (number == 3){
-          ellipse(20,20,20,20);
-          ellipse(20,20,20,20);
-          ellipse(20,20,20,20);
-        }else if (number == 4){
-          ellipse(20,40,20,20);
-          ellipse(20,20,20,20);
-          ellipse(20,20,20,20);
-          ellipse(20,20,20,20);
-        }else if (number == 5){
-          ellipse(20,20,20,20);
-          ellipse(30,20,20,20);
-          ellipse(40,20,20,20);
-          ellipse(50,20,20,20);
-          ellipse(60,20,20,20);
-        }else{
-          ellipse(20,20,20,20);
-          ellipse(30,20,20,20);
-          ellipse(40,20,20,20);
-          ellipse(50,20,20,20);
-          ellipse(60,20,20,20);
-          ellipse(70,20,20,20);
-        }
-      }
-  }
+   noStroke();
+  //car
+   fill(0);
+   rect(Y,780,300,300);
+   fill(255,255,153);
+   rect(X,780,250,150);
+   X = X + 15;
+   Y = Y + 15;
+   
+  //tires
+  fill(150);
+  ellipse(X+20,950,70,70);
+  ellipse(X+200,950,70,70);
+  fill(0);
+  ellipse (X+20,950,40,40);
+  ellipse (X+200,950,40,40);
+  noStroke();
+   //Clouds
+  fill (207,207,207);
+  rect(0,0,1800,120);
+  ellipse(0,0,1000,450);
+  ellipse(1000,0,1000,400);
+  ellipse(1500,0,600,400);
+  ellipse(500,0,500,450);
+  ellipse(1400,0,500,500);
+  ellipse(1000,0,800,550);
+  //Sun
+  fill(246,246,24);
+  ellipse (1900,0,500,500);
+  
+  //road
+  fill(133);
+  rect(0,1000,1920,600);
+  
+  
+}
+void mousePressed(){
+  startX = ((int) (Math.random()*300));
+  startY = 150;
+  endX = 0;
+  endY = 150;
+  background(0);
+  X = 100;
+  Y = 0;
+}
